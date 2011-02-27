@@ -21,7 +21,7 @@ bool CPlayer::Initialize()
     GridPos = DFCVector(0,0);
     State = PS_ALIVE;
 
-    p_Sprite = pr_Layer->CreateSprite("./images/selection.png", DFCVector(150.0f,140.0f));
+    p_Sprite = pr_Layer->CreateSprite("./images/selection.png", DFCVector(150.0f,150.0f));
     
     if (!p_Sprite)
     {
@@ -143,31 +143,8 @@ void CPlayer::PositionOnGrid()
 {
 	DFCVector v;
 
-	switch((int) GridPos.fx)
-	{
-	case 0:
-		v.fx = 30;
-		break;
-	case 1:
-		v.fx = 223;
-		break;
-	case 2:
-		v.fx = 419;
-		break;
-	}
-
-	switch((int) GridPos.fy)
-	{
-	case 0:
-		v.fy = 22;
-		break;
-	case 1:
-		v.fy = 342;
-		break;
-	case 2:
-		v.fy = 521;
-		break;
-	}
+	v.fx = (float) (27.5f + GridPos.fx*200.0f);
+	v.fy = (float) (27.5f + GridPos.fy*200.0f);
 
 	p_Sprite->Position = v;
 }

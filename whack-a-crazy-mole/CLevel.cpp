@@ -29,14 +29,25 @@ CLevel::~CLevel()
 //------------------------------------------------
 bool CLevel::Initialize()
 {
-    int iImageBG = AddTileImage("./images/background.png", DFCVector(600,900));
-    p_LayBG = CreateLayer(DFCVector(600,900), DFCVector(1,1));
+    int iImageBG = AddTileImage("./images/background.png", DFCVector(600,600));
+    p_LayBG = CreateLayer(DFCVector(600,600), DFCVector(1,1));
     p_LayBG->SetBrick(DFCVector(0,0), iImageBG, 0);
-    p_LayMoles = CreateLayer(DFCVector(600,900), DFCVector(1,1));
-    p_LayPlayer = CreateLayer(DFCVector(600,900), DFCVector(1,1));
+    p_LayMoles = CreateLayer(DFCVector(600,600), DFCVector(1,1));
+    p_LayPlayer = CreateLayer(DFCVector(600,600), DFCVector(1,1));
     p_Player = CreatePlayer();
 
+    int j = 0;
+    for (int i = 0; i < (int)ListSprHoles.size(); i++)
+    {
+    	ListSprHoles[i] = p_LayBG->CreateSprite("./images/hole.png", DFCVector(150,150));
+    	ListSprHoles[i]->Position.fx = 27.5f + i*200.0f;
+    	ListSprHoles[i]->Position.fy = 27.5f + j*200.0f;
+    	if ((i+1) % 3) j++;
+    }
+
     return true;
+
+    CreateMole(DFCVector(0,0));
 }
 
 //------------------------------------------------

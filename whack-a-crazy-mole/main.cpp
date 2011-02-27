@@ -12,7 +12,7 @@ int main( int argc, char* args[] )
 {
     DFCMain Main;
 
-    Main.Video.SetVideoMode(false, DFCVector(600.0f, 900.0f));
+    Main.Video.SetVideoMode(false, DFCVector(600.0f, 600.0f));
 
     CLevel Level;
     Main.AddScene(&Level);

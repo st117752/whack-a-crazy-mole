@@ -15,12 +15,9 @@ CMole::~CMole()
 
 bool CMole::Initialize()
 {
-    p_Sprite = pr_Layer->CreateSprite("./images/spr_Kangoo.bmp", DFCVector(75.0f,90.0f));
+    p_Sprite = pr_Layer->CreateSprite("./images/mole.jpg", DFCVector(580.0f,367.0f));
     p_Sprite->pr_Image->SetColorKey(0xFF, 0x0, 0xFF);
     p_Sprite->Position = DFCVector(0,0);
-    p_Sprite->AddAnimation(10, true, 6, 0, 1, 2, 3, 4, 5);
-    p_Sprite->AddAnimation(10, false, 6, 6, 7, 8, 9, 10, 11);
-    p_Sprite->SetCurrentAnimation(1);
 
     State = MS_WAITING;
 

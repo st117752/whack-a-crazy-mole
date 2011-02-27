@@ -22,6 +22,9 @@ class CLevel : public DFCScene
     //!Lista de Moles ativas
     vector<CMole*> ListMoles;
 
+    //!Lista de Buracos
+    vector<DFCSprite*> ListSprHoles;
+
     //!Ponteiro para o Player
     CPlayer* p_Player;
 
